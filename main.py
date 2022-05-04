@@ -1,38 +1,40 @@
-# insertion sort
-dizi = [22,27,16,2,18,6]
-for i in range(1, len(dizi)):
-  deger = dizi[i]
-  j = i-1
-  while j >=0 and deger<dizi[j] :
-    dizi[j+1] = dizi[j]
-    j -= 1
-    dizi[j+1] = deger
-print(dizi)
+# merge sort
 
-"""
-- Yukarı verilen dizinin sort türüne göre aşamalarını yazınız.
+def mergeSort(dizi):
+   if len(dizi) > 1:
+        mid = len(dizi) // 2
+        left = dizi[:mid]
+        right = dizi[mid:]
 
-[22,27,16, 2,18, 6] 
-[ 2,22,27,16,18, 6] 
-[ 2, 6,22,27,16,18] 
-[ 2, 6,16,22,27,18] 
-[ 2, 6,16,18,22,27]
-[ 2, 6,16,18,22,27]
-[ 2, 6,16,18,22,27]
+        # Yarılanmışı çağır
+        mergeSort(left)
+        mergeSort(right)
 
+        i = 0
+        j = 0
+        
+        # Ana yineleyici
+        k = 0
+        
+        while i < len(left) and j < len(right):
+            if left[i] <= right[j]:
+              dizi[k] = left[i]
+              i += 1
+            else:
+                dizi[k] = right[j]
+                j += 1
+            k += 1
 
-- Big-O gösterimini yazınız.
+        while i < len(left):
+            dizi[k] = left[i]
+            i += 1
+            k += 1
 
-n^2 = 36
+        while j < len(right):
+            dizi[k]=right[j]
+            j += 1
+            k += 1
+   return dizi  
 
-
-- Time Complexity:
-
-En iyi durum  : O(n)   (Best case: Dizinin sıralı olması durumu)
-En kötü durum : O(n^2) (Worst case: Aradığımız sayının sonda olması)
-Ortalama      : O(n^2) (Average case: Aradığımız sayının ortada olması)
-
-- Dizi sıralandıktan sonra 18 sayısı hangi case kapsamına girer? 
-
-Ortalama (Avarege)
-"""
+dizi = [16,21,11,8,12,22]
+print(mergeSort(dizi))
