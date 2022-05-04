@@ -23,3 +23,16 @@ n^2 = 36
 **Ortalama      :** O(n^2) (Average case: Aradığımız sayının ortada olması)
 
 - Dizi sıralandıktan sonra 18 sayısı hangi case kapsamına girer? 
+## merge sort
+sıralanacak diziyi ikiye bölüp kendi içinde sıralı küçük parçaları birleştirme mantığına dayanır.
+### **[16,21,11,8,12,22]** dizisi örneği için;
+-   Dizinin sort türüne göre aşamaları:
+[16,21,11,8,12,22]
+[16,21,11]      [8,12,22]
+[16]   [21,11]   [8]   [12,22]
+[16]   [21,11]   [8]   [12,22]
+[16,21,11]   [8,12,22]
+[8,12,16,21,11,22]
+
+-   Big-O gösterimi:
+On(logn)
